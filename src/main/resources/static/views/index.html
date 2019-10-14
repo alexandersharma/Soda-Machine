@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>SodaMachine</title>
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+        <link rel="stylesheet" type="text/css" href="css/sodaMachine.css">
+    </head>
+    <body>
+    <div class="container" ng-app="sodaMachine" ng-controller="sodaController">
+        <div class="panel panel-default">
+            <div class="panel-heading text-center">
+                <h3>soda vending machine</h3>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <img id="mainImage" src="../images/machine.jpg">
+                    </div>
+                <div class="col-lg-1"></div>
+                <div class="col-lg-6 side">
+                    <div class="row">
+                        <div class="alert alert-info" ng-bind="message"></div>
+                    </div>
+                    <div class="row text-center">
+                        <div class="col-lg-1"></div>
+                        <div class="col-lg-3 center-block">
+                            <button type="button" class="btn btn-success" ng-click="insertCoin()">Insert a quarter</button>
+                        </div>
+                        <div class="col-lg-3">
+                            <button type="button" class="btn btn-warning" ng-click="requestRefund()">Remove quarter</button>
+                        </div>
+                        <div class="col-lg-3">
+                            <button type="button" class="btn btn-info" ng-click="checkInventory()">Check inventory</button>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row" ng-repeat="soda in sodas">
+                        <div class="text-center sodaButtons">
+                            <img class="btnImage" ng-click="pressButton(soda)" ng-src="{{'../images/' + soda.name + ' button.jpg'}}">
+                        </div>
+                        <br>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-lg-5" ng-show="coke || sprite || dietCoke">
+                            <h5>Pick your soda from here: </h5>
+                        </div>
+                        <div class="col-lg-5" ng-show="coke">
+                            <img class="soda" src ="../images/coke can.jpg">
+                        </div>
+                        <div class="col-lg-5" ng-show="sprite">
+                            <img class="soda" src ="../images/sprite can.jpg">
+                        </div>
+                        <div class="col-lg-5" ng-show="dietCoke">
+                            <img class="soda" src ="../images/diet coke can.jpg">
+                        </div> 
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
+    <script src="../js/jquery-1.11.1.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/app.js"></script>
+    </body>
+</html>

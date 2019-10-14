@@ -1,0 +1,15 @@
+.btnImage {
+    width: 150px;
+    height: 50px;
+    border: 1px solid;
+    cursor: pointer;
+}
+
+#mainImage {
+    height:100%;
+}
+
+.soda {
+    width:100px;
+    height:90px;
+}
